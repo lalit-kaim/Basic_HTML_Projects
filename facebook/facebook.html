@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <title>Facebook</title>
+    <style>
+        body,html{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            /* border: 4px solid salmon; */
+        }
+        .top{
+            height: 14%;
+            width: 100%;
+            /* border: 4px solid seagreen; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(70, 105, 181);
+        }
+        .bottom{
+            height: 86%;
+            width: 100%;
+            /* border: 4px solid lawngreen; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(230, 230, 240);
+        }
+        .logo{
+            width: 40%;
+            height: 100%;
+            /* border: 4px solid saddlebrown; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo>h1{
+            font-size: 40px;
+            margin-top: 45px;
+            color: white;
+        }
+        .login{
+            width: 60%;
+            height: 100%;
+            /* border: 4px solid khaki;  */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .email{
+            width: 25%;
+            height: 100%;
+            /* border: 4px solid aqua; */
+        }
+        .email>span{
+            color: white;
+            display: block;
+            margin: 10px 0px -10px;
+            font-size: 12px;
+        }
+        .password{
+            width: 25%;
+            height: 100%;
+            /* border: 4px solid lightblue; */
+        }
+        .passwordspan{
+            color: white;
+            display: block;
+            margin: 10px 0px -10px;
+            font-size: 12px;
+        }
+        .forgot{
+            font-size: 12px;
+            color: rgb(216, 214, 231);
+            text-decoration: none;
+        }
+        .left{
+            width: 38%;
+            height: 100%;
+            /* border: 4px solid blue; */
+        }
+        .left>h2{
+            font-size: 22px;
+            color: rgb(44, 44, 44);
+            line-height: 30px;
+        }
+        .right{
+            width: 35%;
+            height: 100%;
+            /* border: 4px solid navy; */
+        }
+        img{
+            width: 100%;
+        }
+        .name{
+            width: 100%;
+            height: 9%;
+            /* border: 4px solid black; */
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .signupbutton{ 
+            background-color: rgb(94, 153, 75);
+            width: 45%;
+            height: 8%;
+            color: white;
+            font-size: 20px;
+            border-radius: 8px;
+            border: 1px solid rgb(148, 148, 148);
+            outline: none;
+            box-shadow: 0px 0px 1px black;
+        }
+        .loginbutton{
+            border:none;
+            background-color: rgb(70, 105, 181);
+            box-shadow: 0px 0px 1px black;
+            color: white;
+            height: 20px;
+            margin: -7px -10px 0px;
+        }
+        .free{
+            font-size: 20px;
+        }
+        .input2{
+            width:100%;
+            height: 40px;
+            border:1px solid rgb(139, 139, 139);
+            font-size: 18px;
+            padding: 7px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .name>input{
+            width: 49%;
+        }
+        .birthdayspan{
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            color: rgb(145, 145, 145);
+            margin: 10px 0px -20px;
+        }
+        .right>select{
+            width: auto;
+            height: 28px;
+            margin-top: 10px;
+        }
+        .genderspan{
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            color: rgb(145, 145, 145);
+            margin: 10px 0px -20px;
+        }
+        input[type=radio]{
+            margin-top: 10px;
+        }
+        .radiotext{
+            font-size: 18px;
+        }
+        .conditiondiv{
+            width: 70%;
+
+        }
+        .condition{
+            font-size: 12px;
+            color: rgb(102, 102, 102);
+            line-height: 15px;
+        }
+        .condition>span{
+            color: rgb(40, 41, 136);
+        }
+        .right>h1{
+            color: rgb(44, 44, 44);            
+        }
+    </style>    
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <div class="logo">
+                <h1>facebook</h1>
+            </div>
+            <div class="login">
+                <div class="email">
+                    <span>Email or phone</span><br>
+                    <input type="text">
+                </div>
+                <div class="password">
+                    <span class="passwordspan">Password</span><br>
+                    <input type="text">
+                    <a href="#" class="forgot">Forgotten account?</a>
+                </div>
+                <button class="loginbutton">Log in</button>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <h2>Facebook helps you connect and share with the people in your life.</h2>
+                <img src="map.png" alt="">
+            </div>
+            <div class="right">
+                <h1>Create your account</h1>
+                <p class="free">It's free and always will be.</p>
+                <div class="name">
+                    <input type="text" placeholder="First Name" class="input2">
+                    <input type="text" placeholder="Surname" class="input2">
+                </div>
+                <input type="text" placeholder="Mobile number or email address" class="input2"><br>
+                <input type="text" placeholder="New password" class="input2"><br>
+                <span class="birthdayspan">Birthday</span><br>
+                <select>
+                    <option value="">Day</option>
+                </select>
+                <select>
+                    <option value="">Month</option>
+                </select>
+                <select>
+                    <option value="">Year</option>
+                </select><br>
+                <span class="genderspan">Gender</span><br>
+                <input type="radio" name="lk"><span class="radiotext">Female</span>
+                <input type="radio" name="lk"><span class="radiotext">Male</span>
+                <input type="radio" name="lk"><span class="radiotext">Custom</span><br>
+                <div class="conditiondiv">
+                    <p class="condition">By clicking Sign Up, you agree to our <span>Terms, Data Policy</span> and <span>Cookie Policy</span>. You may receive SMS notifications from us and can opt out at any time.</p>
+                </div>
+                <button class="signupbutton">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
