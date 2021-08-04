@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validation form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+    #psuggestion{
+        display: none;
+    }
+    body{
+        background: #314755;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    input{
+        background-color: transparent!important;
+        color: white!important;
+    }
+    ::placeholder{
+        color: white!important;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <input id="lk1" class="form-control m-1" placeholder="Your Name..." type="text" onblur="mname(event)">
+            <input id="lk2" class="form-control m-1" placeholder="Your Email..." type="text" onblur="memail(event)">
+            <input id="lk3" class="form-control m-1" placeholder="Your Mobile..." type="text" onblur="mmobile(event)">
+            <input id="lk4" class="form-control m-1" placeholder="Your Password...[a-z][A-Z][0-9]" type="password" onfocus="show()" onblur="mpassword(event)">
+            <div class="col-lg-12 m-0 p-0">
+                <small id="psuggestion" class="text-danger">&nbsp;must contain small letter, capital letter, number and length>10</small>
+                <button class="btn btn-success float-right" onclick="nextpage(event)">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    var n=document.getElementById("lk1");
+    var em=document.getElementById("lk2");
+    var m=document.getElementById("lk3");
+    var p=document.getElementById("lk4");
+    function mname(e){
+        temp=false;
+        var x="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for(i=0;i<e.target.value.length;i++){
+            if(!x.includes(e.target.value[i])){
+                temp=true;
+                break;
+            }
+        }
+        if(temp){
+            n.style.borderColor="red";
+        }
+        else{
+            n.style.borderColor="green";
+        }
+    }
+    function memail(e){
+        temp=true;
+        var x="@.";
+        if(e.target.value.includes(x[0]) && e.target.value.includes(x[1])){
+            temp=false;
+        }
+        if(temp){
+            em.style.borderColor="red";
+        }
+        else{
+            em.style.borderColor="green";
+        }
+    }
+    function mmobile(e){
+        temp=false;
+        var x="0123456789";
+        if(e.target.value.length==10){
+            for(i=0;i<10;i++){
+                if(!x.includes(e.target.value[i])){
+                    temp=true;
+                    break;
+                }
+            }
+        }
+        else{
+            m.style.borderColor="red";
+            return;
+        }
+        if(temp){
+            m.style.borderColor="red";
+        }
+        else{
+            m.style.borderColor="green";
+        }
+    }
+    function mpassword(e){
+        document.getElementById("psuggestion").style.display="none";
+        bsmall=false;
+        bcapital=false;
+        bnum=false;
+        var small="abcdefghijklmnopqrstuvwxyz";
+        var capital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var num="0123456789";
+        if(e.target.value.length<10){
+            p.style.borderColor="red";
+            return;
+        }
+        else{
+            for(i=0;i<e.target.value.length;i++){
+                if(small.includes(e.target.value[i])){
+                    bsmall=true;
+                }
+                if(capital.includes(e.target.value[i])){
+                    bcapital=true;
+                }
+                if(num.includes(e.target.value[i])){
+                    bnum=true;
+                }
+            }
+            if(bsmall && bcapital && bnum){
+                p.style.borderColor="green";
+            }
+            else{
+                p.style.borderColor="red";
+            }
+        }
+    }
+    function show(){
+        document.getElementById("psuggestion").style.display="inline";
+    }
+    function nextpage(e){
+        if(n.style.borderColor=="green" && em.style.borderColor=="green" && m.style.borderColor=="green" && p.style.borderColor=="green"){
+            window.open("welcome.html");
+        }
+    }
+    </script>
+</body>
+</html>

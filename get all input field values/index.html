@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get input values</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+    body{
+        background: #108dc7;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ef8e38, #108dc7);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ef8e38, #108dc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white!important;
+    }
+    input{
+        background-color: transparent!important;
+    }
+    ::placeholder{
+        color: white!important;
+    }
+    select{
+        background-color: transparent!important;
+        color: white!important;
+    }
+    option{
+        background-color: transparent!important;
+    }
+    input[type="number"]::-webkit-inner-spin-button{
+        display:none!important;
+    }
+    input{
+        margin-top: 10px;
+    }
+    .main{
+        width: 100%;
+        /* border: 4px solid salmon; */
+        overflow: hidden;
+        height: max-content;
+    }
+    .result{
+        width: 0%;
+        height: 100%;
+        transition: 1s;
+    }
+    .parent{
+        width: 100%;
+        height: max-content;
+        /* border: 4px solid seagreen; */
+        display: flex;
+        overflow: hidden;
+    }
+    @media only screen and (max-width:600px){
+        .parent{
+            flex-wrap: wrap;
+        }
+        .result{
+            border-left: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">
+    <div class="main">
+        <form>
+            <div class="row m-2">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="text" id="name" class="form-control" placeholder="Type Your Name...">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="email" class="form-control" placeholder="Type Your Email...">
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="number" class="form-control" placeholder="Type Your Mobile Number...">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="password" class="form-control" placeholder="Type Your Password...">
+                </div>
+            </div>
+            <div class="row m-2 align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <select class="form-control">
+                        <option value="" style="color:sandybrown">Select Your Laptop...</option>
+                        <option value="HP" style="color:sandybrown">HP</option>
+                        <option value="LENOVO" style="color:sandybrown">LENOVO</option>
+                        <option value="MACBOOK" style="color:sandybrown">MACBOOK</option>
+                        <option value="DELL" style="color:sandybrown">DELL</option>
+                        <option value="ASUS" style="color:sandybrown">ASUS</option>
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <select multiple class="form-control mt-2">
+                        <option value="">Smartphones You Have...</option>
+                        <option value="IPHONE">IPHONE</option>
+                        <option value="ONEPLUS">ONEPLUS</option>
+                        <option value="XIAOMI">XIAOMI</option>
+                        <option value="SAMSUNG">SAMSUNG</option>
+                        <option value="VIVO">VIVO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row ml-4 mr-2">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="MALE" checked>
+                        <span class="mr-3">MALE</span>       
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="FEMALE">
+                        <span class="mr-3">FEMALE</span>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="CUSTOM">
+                        <span class="mr-3">CUSTOM</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="B.Tech">
+                        <span>B.Tech</span>       
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="MBA">
+                        <span>MBA</span>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="B.Sc">
+                        <span>B.Sc</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center m-2">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="file" value="file">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <input type="range" class="form-control-range">
+                </div>
+            </div>
+            <div class="w-100">
+                <button class="btn btn-success float-right m-3" onclick="fun(event)">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="result">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    </div>
+    <script>
+    function fun(e){
+        e.preventDefault();
+        var a=document.getElementsByTagName("input");
+        var b=document.getElementsByTagName("select");
+        var c=document.getElementsByTagName("li");
+        var x="",gender,qualifications="";
+        for(i=0;i<b[1].options.length;i++){
+            if(b[1][i].selected){
+                x=x+b[1][i].value+", ";
+            }
+        }
+        for(i=4;i<7;i++){
+            if(a[i].checked){
+                gender=a[i].value;
+            }
+        }
+        for(i=7;i<10;i++){
+            if(a[i].checked){
+                qualifications+=a[i].value+", ";
+            }
+        }
+        if(a[10].files[0]){
+            filename=a[10].files[0].name;
+        }
+        else{
+            filename="None";
+        }
+        var result=document.getElementsByClassName("result")[0];
+        result.style.width="40%";
+        try{
+        c[0].innerHTML="Your Name Is: "+a[0].value;
+        c[1].innerHTML="Your Email Is: "+a[1].value;
+        c[2].innerHTML="Your Mobile Is: "+a[2].value;
+        c[3].innerHTML="Your Password Is: "+a[3].value;
+        c[4].innerHTML="Your Laptop Is: "+b[0].value;
+        c[5].innerHTML="Your Smartphone Is: "+x.substring(0,x.length-2);
+        c[6].innerHTML="Your Gender Is: "+gender;
+        c[7].innerHTML="Your Qualifications Is: "+qualifications.substring(0,qualifications.length-2);
+        c[8].innerHTML="Your File Name Is: "+filename;
+        c[9].innerHTML="Your Range Is: "+a[11].value;
+        result.style.visibility="visible"
+        }
+        catch(err){
+
+        }
+    }
+    </script>
+</body>
+</html>

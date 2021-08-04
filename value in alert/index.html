@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Value in alert</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+    input{
+        min-width: 200px;   
+    }
+    body{
+        background: #659999;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    
+    </style>
+</head>
+<body>
+    <form onsubmit="fun()" class="form">
+        <div class="form-group row m-3 justify-content-center">
+            <input type="text" class="form-control w-25 mr-2">
+            <button class="btn btn-success">Click</button>
+        </div>
+    </form>
+    <script>
+        function fun(){
+            var input=document.getElementsByTagName("input")[0].value;
+            if(input=="")
+                alert("Please Type Something...");
+            else
+                alert("Your Text Is:"+input);
+        }
+    </script>
+</body>
+</html>

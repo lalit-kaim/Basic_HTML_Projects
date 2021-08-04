@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change BGColor at every second</title>
+</head>
+<body onload="fun()">
+    
+    <script>
+        function fun(){
+            var a='0123456789ABCDEF';
+            var color='#';
+            for (var i=0;i<6;i++) {
+                color+=a[Math.floor(Math.random()*16)]; //0-15 index
+            }
+            document.body.style.backgroundColor=color;
+        }
+        setInterval(fun,1000);
+    </script>
+</body>
+</html>

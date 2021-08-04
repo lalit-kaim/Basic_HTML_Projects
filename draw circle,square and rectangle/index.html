@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw circle, square and rectangle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body{
+            background: #4ECDC4;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #556270, #4ECDC4);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #556270, #4ECDC4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white!important;
+        }
+        input::-webkit-inner-spin-button{
+            display: none;
+        }
+        ::placeholder{
+            color: white!important;
+        }
+        .middle{
+            flex-direction: column;
+            padding: 15px;
+        }
+        input[type="number"]{
+            width: 75%;
+            margin:5px;
+            background-color: transparent!important;
+            color: white!important;
+        }
+        .circle,.square,.rectangle{
+            display: none;
+            flex-direction: column;
+        }
+        #shape{
+            transition: 1s!important;
+        }
+        small{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="row top justify-content-center m-0">
+        <div class="form-check">
+            <input type="radio" onchange="fun()" name="shape" value="circle" class="form-check-input"><span class="mr-4">Circle</span>
+        </div>
+        <div class="form-check">
+            <input type="radio" onchange="fun()" name="shape" value="square" class="form-check-input"><span class="mr-4">Square</span>
+        </div>
+        <div class="form-check">
+            <input type="radio" onchange="fun()" name="shape" value="rectangle" class="form-check-input"><span class="mr-4">rectangle</span>
+        </div>
+    </div>
+    <div class="middle row justify-content-center m-0">
+        <div class="circle row justify-content-center align-items-center">
+            <input type="number" oninput="circle(event)" placeholder="Enter radius..." class="form-control" id="c">
+        </div>
+        <div class="square row justify-content-center align-items-center">
+            <input type="number" oninput="square()" placeholder="Enter square width..." class="form-control" id="sw">
+            <input type="number" oninput="square()" placeholder="Enter square height..." class="form-control" id="sh">
+            <small class="text-danger">Values Are Mismatch....</small>
+        </div>
+        <div class="rectangle row justify-content-center align-items-center">
+            <input type="number" oninput="rectangle()" placeholder="Enter rectangle width..." class="form-control" id="rw">
+            <input type="number" oninput="rectangle()" placeholder="Enter rectangle height..." class="form-control" id="rh">
+        </div>
+    </div>
+    <div class="bottom m-0">
+        <div id="shape"></div>
+    </div>
+    <script>
+        var x=document.getElementById("shape");
+        var cinput=document.getElementById("c");
+        var sw=document.getElementById("sw");
+        var sh=document.getElementById("sh");
+        var rw=document.getElementById("rw");
+        var rh=document.getElementById("rh");
+        function fun(){
+            var c=document.getElementsByClassName("circle")[0];
+            var s=document.getElementsByClassName("square")[0];
+            var r=document.getElementsByClassName("rectangle")[0];
+            var a=document.getElementsByTagName("input");
+            if(a[0].checked){
+                c.style.display="flex";
+                s.style.display="none";
+                r.style.display="none";
+                x.style.display="none";
+                cinput.value="";
+            }
+            if(a[1].checked){
+                c.style.display="none";
+                s.style.display="flex";
+                r.style.display="none";
+                x.style.display="none";
+                sw.value="";
+                sh.value="";
+            }
+            if(a[2].checked){
+                c.style.display="none";
+                s.style.display="none";
+                r.style.display="flex";
+                x.style.display="none";
+                rw.value="";
+                rh.value="";
+            }
+            
+        }
+        function circle(e){
+            x.style.display="none";
+            if(e.target.value==""){
+                x.style.display="none";
+            }
+            else{
+                x.style.display="flex";
+                x.style.width=e.target.value*2+"px";
+                x.style.height=e.target.value*2+"px";
+                x.style.border="4px solid #1ee3cf";
+                x.style.borderRadius="50%";
+            }
+        }
+        function square(){
+            if(sw.value=="" || sh.value==""){
+                x.style.display="none";
+                document.getElementsByTagName("small")[0].style.visibility="hidden";
+            }
+            else if(sw.value!=sh.value){
+                document.getElementsByTagName("small")[0].style.visibility="visible";
+                x.style.display="flex";
+                x.style.width="0px";
+                x.style.height="0px";
+                x.style.border="4px solid #1ee3cf";
+                x.style.borderRadius="0%";
+            }
+            else{
+                document.getElementsByTagName("small")[0].style.visibility="hidden";
+                x.style.display="flex";
+                x.style.width=sw.value+"px";
+                x.style.height=sh.value+"px";
+                x.style.border="4px solid #1ee3cf";
+                x.style.borderRadius="0%";
+            }
+        }
+        function rectangle(){
+            if(rw.value=="" || rh.value==""){
+                x.style.display="none";
+            }
+            else{
+                x.style.display="flex";
+                x.style.width=rw.value+"px";
+                x.style.height=rh.value+"px";
+                x.style.border="4px solid #1ee3cf";
+                x.style.borderRadius="0%";
+
+            }
+        }
+    </script>
+</body>
+</html>
